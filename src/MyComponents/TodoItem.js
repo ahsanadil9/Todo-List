@@ -1,28 +1,32 @@
-import React from 'react'
-import { Button } from 'reactstrap'
+import React from "react";
+import { Button } from "reactstrap";
 
-export const TodoItem = ({todo, deleteTodo}) => {
+export const TodoItem = ({ todo, deleteTodo, editTodo }) => {
   return (
-    <div className='w-100 d-flex justify-content-between align-items-center mb-2'>
+    <div className="w-100 d-flex justify-content-between align-items-center mb-2">
       <div>
         <h4>{todo.title}</h4>
         <p>{todo.desc}</p>
       </div>
       <div>
         <Button
-          color='primary'
-          className='me-2'
-          onClick={(e) => {
-            // edit todo 
+          color="primary"
+          className="me-2"
+          onClick={() => {
+            editTodo(todo);
           }}
-        >Edit</Button>
+        >
+          Edit
+        </Button>
         <button
-          className='btn btn-danger'
+          className="btn btn-danger"
           onClick={(e) => {
-            deleteTodo(todo)
+            deleteTodo(todo);
           }}
-        >Delete</button>
+        >
+          Delete
+        </button>
       </div>
     </div>
-  )
-}
+  );
+};
